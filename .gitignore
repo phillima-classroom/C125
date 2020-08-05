@@ -68,3 +68,12 @@ dkms.conf
 
 #VSCode configuration
 *.vscode/
+/.metadata/
+
+#Eclipse
+*.classpath
+*.project
+*.settings/
+
+#java
+*.class
