@@ -1,3 +1,5 @@
+package exercicio5;
+
 public class Ashen{
 
     String nome;

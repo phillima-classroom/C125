@@ -1,3 +1,5 @@
+package exercicio6;
+
 public class Kart{
 
    String nome;

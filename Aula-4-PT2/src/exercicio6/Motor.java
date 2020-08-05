@@ -1,3 +1,6 @@
+package exercicio6;
+
+
 public class Motor{
 
     String cilindradas;

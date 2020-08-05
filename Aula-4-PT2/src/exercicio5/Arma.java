@@ -1,3 +1,5 @@
+package exercicio5;
+
 public class Arma{
     String nome,descricao;
     int poder, resistencia;
