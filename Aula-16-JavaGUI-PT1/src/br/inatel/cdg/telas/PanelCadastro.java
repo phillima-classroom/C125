@@ -1,4 +1,4 @@
-package br.inatel.cdg.panel;
+package br.inatel.cdg.telas;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
