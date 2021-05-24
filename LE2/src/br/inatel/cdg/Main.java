@@ -12,17 +12,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Path arquivo = Paths.get("dados.csv");
+		Path arquivo = Paths.get("funcionarios.csv");
 		
-		try {
-			List<String> linhas = 
-					Files.readAllLines(arquivo);
-			
-			CSVUtils.criaOrdenandoSalario(arquivo);
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		CSVUtils.geraNovoCsvSemFilhos(arquivo);
 		
 	}
 	

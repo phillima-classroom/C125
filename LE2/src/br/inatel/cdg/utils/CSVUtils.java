@@ -14,14 +14,11 @@ import br.inatel.cdg.funcionario.Funcionario;
 
 public class CSVUtils {
 
-	public static void criaOrdenandoSalario(Path arquivo) {
-		
+	public static void geraNovoCsvSemFilhos(Path arquivo) {
 		
 		List<Funcionario> funcionarios = leCsv(arquivo);
 		
-		Collections.sort(funcionarios, (f1,f2) -> (int) Math.signum((f2.getSalario() - f1.getSalario())));
-		
-		criaCsv(funcionarios, "novosDados.csv");
+		criaCsv(funcionarios, "func_filtrado.csv");
 	}
 	
 	private static List<Funcionario> leCsv(Path arquivo) {
@@ -37,11 +34,8 @@ public class CSVUtils {
 				
 				Funcionario f = new Funcionario(
 						 Integer.parseInt(linhaQuebrada[0]),
-						 linhaQuebrada[1],
 						 Double.parseDouble(linhaQuebrada[4]),
-						 Integer.parseInt(linhaQuebrada[3]),
-						 Integer.parseInt(linhaQuebrada[6]));
-				
+						 Integer.parseInt(linhaQuebrada[3]));
 				funcionarios.add(f);
 			});
 			
@@ -55,7 +49,7 @@ public class CSVUtils {
 	
 	private static void criaCsv(List<Funcionario> funcionarios, String nomeArquivo) {
 		
-		String headerFinal = "Id,Est.civil,Filhos,Salario,Meses\n";
+		String headerFinal = "Id,Filhos,Salario\n";
 		
 		Path arquivoFinal = Paths.get(nomeArquivo);
 		
@@ -64,11 +58,9 @@ public class CSVUtils {
 			
 			StringBuilder builder = new StringBuilder();
 			
-			funcionarios.stream().filter(f -> f.getNumFilhos()==0).forEach((func) -> {
+			funcionarios.stream().filter(f -> f.getNumFilhos()>0).forEach((func) -> {
 				builder.append(func.getId()).append(",")
-				.append(func.getEstCivil()).append(",")
 				.append(func.getNumFilhos()).append(",")
-				.append(func.getMesesTrabalho()).append(",")
 				.append(func.getSalario()).append("\n");
 			});
 			
