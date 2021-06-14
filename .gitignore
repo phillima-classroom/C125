@@ -78,3 +78,5 @@ dkms.conf
 
 #java
 *.class
+#maven
+target/
